@@ -8,10 +8,14 @@ class Square():
     def __init__(self, *args, **kwargs):
         """Init fuction."""
         my_dic = kwargs
-        if 'width' not in my_dic or getattr(my_dic['width']) < 0:
+        if 'width' not in my_dic:
             my_dic['width'] = 0
-        if 'height' not in my_dic or getattr(my_dic['height']) < 0:
+        if 'width' in my_dic and my_dic['width'] < 0:
+            raise ValueError("Width must be positive")
+        if 'height' not in my_dic:
             my_dic['height'] = 0
+        if 'height' in my_dic and my_dic['height'] < 0:
+            raise ValueError("Height must be positive")
         for key, value in my_dic.items():
             setattr(self, key, value)
 
