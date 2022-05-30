@@ -8,9 +8,9 @@ class Square():
     def __init__(self, *args, **kwargs):
         """Init fuction."""
         my_dic = kwargs
-        if 'width' not in my_dic:
+        if 'width' not in my_dic or getattr(my_dic['width']) < 0:
             my_dic['width'] = 0
-        if 'height' not in my_dic:
+        if 'height' not in my_dic or getattr(my_dic['height']) < 0:
             my_dic['height'] = 0
         for key, value in my_dic.items():
             setattr(self, key, value)
