@@ -5,12 +5,14 @@
 class Square():
     """Square Class"""
 
-    width = 0
-    height = 0
-
     def __init__(self, *args, **kwargs):
         """Init fuction"""
-        for key, value in kwargs.items():
+        my_dic = kwargs
+        if 'width' not in my_dic:
+            my_dic['width'] = 0
+        if 'height' not in my_dic:
+            my_dic['height'] = 0
+        for key, value in my_dic.items():
             setattr(self, key, value)
 
     def area_of_my_square(self):
@@ -27,7 +29,7 @@ class Square():
 
 
 if __name__ == "__main__":
-    s = Square(width=12, height=9)
+    s = Square(height=9)
     print(s)
     print(s.area_of_my_square())
     print(s.PermiterOfMySquare())
